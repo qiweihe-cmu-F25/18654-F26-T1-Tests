@@ -1,0 +1,29 @@
+spring:
+  config:
+    import: 
+      - optional:file:../.env[.properties]
+      - optional:file:.env[.properties]
+  application:
+    name: flight-tracking
+  datasource:
+    url: ${DB_URL}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+server:
+  port: 18082
+external:
+  expense:
+    url: ${EXPENSE_SERVICE_URL}
+  trip:
+    url: ${TRIP_SERVICE_URL}
+
+jwt:
+  key: ${JWT_KEY}
+  expire: ${JWT_EXPIRE}

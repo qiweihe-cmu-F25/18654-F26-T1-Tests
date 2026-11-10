@@ -1,0 +1,16 @@
+spring:
+  config:
+    import:
+      - optional:file:../.env[.properties]
+      - optional:file:.env[.properties]
+  application:
+    name: flight-search
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+server:
+  port: 18085
+external:
+  flight-search:
+    url: ${FLIGHT_SEARCH_PROVIDER_URL}
